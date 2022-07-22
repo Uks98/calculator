@@ -34,14 +34,17 @@ class _MyHomePageState extends State<MyHomePage> {
   String num = ""; String buttonText = "";
   List<DropdownMenuItem<String>> _dropDownMenuItems = [];
   List<String> _buttonList = ["더하기","뺴기","곱하기","나누기"];
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
+  void getDropdownList(){
     for(final item in _buttonList){
       _dropDownMenuItems.add(DropdownMenuItem(value: item, child: Text(item,style: TextStyle(color: Colors.black),),));
     }
     buttonText = _dropDownMenuItems[0].value.toString();
+  }
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getDropdownList();
   }
   @override
   Widget build(BuildContext context) {
